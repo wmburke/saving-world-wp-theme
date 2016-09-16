@@ -1,0 +1,70 @@
+/*
+ Theme Name:   Saving.World
+ Theme URI:    http://saving.world/
+ Description:  Twenty Sixteen Child Theme for Saving.World
+ Author:       Wayne Moses Burke
+ Author URI:   http://waynemosesburke.com
+ Template:     twentysixteen
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain:  twenty-fifteen-child
+*/
+
+code {
+  background-color: inherit;
+}
+
+#actName {
+  width: 100%;
+}
+
+#actType {
+  float: right;
+}
+
+#actDate {
+  padding: 7px 4px;
+}
+
+#cat {
+  margin-top: 7px;
+}
+
+#venueType, #actCity {
+  float: right;
+}
+
+#actIssues {
+  width: 100%;
+}
+
+#submit {
+  width: 100%;
+}
+
+.sdw-activity-form div {
+  display: inline-block;
+  min-height: 71px;
+}
+
+.sdw-activity-form span {
+  font-size: .75rem;
+  color: grey;
+}
+
+.sdw-activity-form input[type="radio"] {
+  margin-top: 15px;
+}
+
+.sdw-activity-form .submit {
+  text-align: center;
+}
+
+.ui-datepicker {
+  font-size: .7em;
+}
+
+.ui-menu-item {
+  background: #aaa;
+}
