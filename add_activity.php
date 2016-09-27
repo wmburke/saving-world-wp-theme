@@ -3,6 +3,7 @@
 Template Name: Add Activity Form
 */
 
+
 if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post") {
 
     // Do some minor form validation to make sure there is content
@@ -118,26 +119,26 @@ echo "</pre>";
             <!-- Activity Name -->
             <div id="actName">
               <label for="name">Name</label><br>
-              <input type="text" value="" tabindex="5" name="name" />
+              <input type="text" value="" tabindex="5" name="name" id="name" required />
             </div>
 
             <!-- Activity Date -->
             <div>
               <label for="date">Start Date</label><br>
-              <input type="date" id="actDate" value="" tabindex="10" name="date" />
+              <input type="date" id="actDate" value="" tabindex="10" name="date" required />
             </div>
 
             <!-- Activity Type -->
             <div id="actType">
               <label for="cat">Type</label><br>
-              <input type="text" value="" tabindex="15" name="cat" id="actType1" />
+              <input type="text" value="" tabindex="15" name="cat" id="actType1" required />
               <?php //wp_dropdown_categories( 'tab_index=10&taxonomy=sdw_activity_type&hide_empty=0' ); ?>
             </div>
 
             <!-- Activity Description -->
             <div>
               <label for="description">Description</label><br>
-              <textarea id="actDesc" tabindex="20" name="description" cols="80" rows="5"></textarea>
+              <textarea id="actDesc" tabindex="20" name="description" cols="80" rows="5" required ></textarea>
             </div>
 
           </fieldset>
@@ -160,7 +161,7 @@ echo "</pre>";
             <!-- Activity City -->
             <div id="venueCity">
               <label for="city">City</label><br>
-              <input type="text" value="" tabindex="35" name="city" />
+              <input type="text" value="" tabindex="35" name="city" required />
             </div>
 
         </fieldset>
@@ -171,19 +172,19 @@ echo "</pre>";
             <!-- Activity Issues -->
             <div id="actIssues">
               <label for="issues">What issues did this activity work on (comma separated if multiples)?</label><br>
-              <input type="text" value="" tabindex="40" name="issues" id="actIssues1" />
+              <input type="text" value="" tabindex="40" name="issues" id="actIssues1" required />
             </div>
 
             <!-- Activity Goal -->
             <div>
               <label for="goal">What were your goals?</label><br>
-              <textarea id="actGoals" tabindex="45" name="goal" cols="80" rows="5"></textarea>
+              <textarea id="actGoals" tabindex="45" name="goal" cols="80" rows="5" required ></textarea>
             </div>
 
             <!-- Activity Success -->
             <div>
-              <label for="success">How successful would you rate this activity?</label><br>
-              <input type="radio" value="1" tabindex="50" name="success" />1
+              <label for="success" >How successful would you rate this activity?</label><br>
+              <input type="radio" value="1" tabindex="50" name="success" required />1
               <input type="radio" value="2" tabindex="50" name="success" />2
               <input type="radio" value="3" tabindex="50" name="success" />3
               <input type="radio" value="4" tabindex="50" name="success" />4
@@ -193,7 +194,7 @@ echo "</pre>";
             <!-- Activity Lessons Learned -->
             <div>
               <label for="lessonsLearned">Lessons Learned / Advice to Others</label><br>
-              <textarea id="actLessonsLearned" tabindex="55" name="lessonsLearned" cols="80" rows="5"></textarea>
+              <textarea id="actLessonsLearned" tabindex="55" name="lessonsLearned" cols="80" rows="5" ></textarea>
             </div>
 
         </fieldset>
@@ -228,14 +229,26 @@ echo "</pre>";
     });
   });
 
-// Autocomplete for Activity Type
+/* Autocomplete for Activity Type
   var actTypesList = <?php echo json_encode($actTypeList) ?>;
   jQuery(document).ready(function() {
     jQuery('#actType1').autocomplete({
       source : actTypesList
     });
   });
+*/
+</script>
 
+<script>
+jQuery(document).ready(function() {
+
+  // Validation of form
+  jQuery("form").validate();
+
+  // auto tags input
+  jQuery('#actType1').tagsInput();
+
+});
 
 </script>
 
